@@ -8,6 +8,8 @@ import java.util.List;
  */
 public class NaturalNumbersServiceImpl implements NaturalNumbersService {
 
+
+
     @Override
     public NaturalNumbersService.Result isAPrimeNumber(int number) {
         boolean flag = false;
@@ -30,17 +32,18 @@ public class NaturalNumbersServiceImpl implements NaturalNumbersService {
     @Override
     public List<Integer> ListNPrimeNumbers(int quantity) throws Exception {
         if (quantity < 1) {
-            throw new Exception("Error la cantidad tiene que ser mayor a cero");
+            throw new Exception(error_message_parameter_list_invalid);
         } else {
-            int aux = 0;
+            int contador = 0;
             List<Integer> resultado = new ArrayList<Integer>();
-            int i = 2;
-            while (aux < quantity) {
-                if (isAPrimeNumber(i) == Result.OK) {
-                    resultado.add(i);
-                    aux++;
+            int auxiliar = 2;
+
+            while (contador < quantity) {
+                if (isAPrimeNumber(auxiliar) == Result.OK) {
+                    resultado.add(auxiliar);
+                    contador++;
                 }
-                i++;
+                auxiliar++;
             }
 
             return resultado;
