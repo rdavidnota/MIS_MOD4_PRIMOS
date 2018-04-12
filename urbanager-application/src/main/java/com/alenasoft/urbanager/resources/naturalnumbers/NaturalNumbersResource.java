@@ -9,10 +9,7 @@ import io.swagger.annotations.ApiOperation;
 import io.swagger.annotations.ApiResponse;
 
 import javax.inject.Inject;
-import javax.ws.rs.Consumes;
-import javax.ws.rs.POST;
-import javax.ws.rs.Path;
-import javax.ws.rs.PathParam;
+import javax.ws.rs.*;
 import javax.ws.rs.core.MediaType;
 import javax.ws.rs.core.Response;
 import java.net.URI;
@@ -33,7 +30,7 @@ public class NaturalNumbersResource {
 
     @POST
     @UnitOfWork
-    @Path("is_a_prime/{number}")
+    @Path("primo/{number}")
     @Consumes(MediaType.APPLICATION_JSON)
     @ApiOperation(value = "Verify if a number is a prime number")
     @ApiResponse(code = 200, message = "Verify if a number is a prime number")
@@ -48,11 +45,11 @@ public class NaturalNumbersResource {
 
     @POST
     @UnitOfWork
-    @Path("list_nprime/{number}")
+    @Path("primo")
     @Consumes(MediaType.APPLICATION_JSON)
     @ApiOperation(value = "List the N first prime numbers")
     @ApiResponse(code = 200, message = "List the N first prime numbers")
-    public Response listNPrimeNumbers(@PathParam("number") int number) {
+    public Response listNPrimeNumbers(@QueryParam("limite") int number) {
         try {
             List<Integer> result = this.service.ListNPrimeNumbers(number);
             return Response.ok(result).build();
