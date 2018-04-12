@@ -11,6 +11,7 @@ import java.util.Arrays;
 import java.util.List;
 
 import static org.assertj.core.api.Assertions.assertThat;
+import static org.junit.Assert.assertTrue;
 
 /**
  * Created by rnota on 10/04/2018.
@@ -48,5 +49,27 @@ public class NaturalNumbersServiceImplTest {
         NaturalNumbersService naturalNumbersService = new NaturalNumbersServiceImpl();
         List<Integer> result = naturalNumbersService.ListNPrimeNumbers(15);
         assertThat(result).isEqualTo(expected);
+    }
+
+    @Test
+    public void testListTheNPrimeNumbersWithParameterZero() {
+        try {
+            NaturalNumbersService naturalNumbersService = new NaturalNumbersServiceImpl();
+            List<Integer> result = naturalNumbersService.ListNPrimeNumbers(0);
+        } catch (Exception ex) {
+            assertTrue(ex instanceof Exception);
+            System.out.println(ex.getMessage());
+        }
+    }
+
+    @Test
+    public void testListTheNPrimeNumbersWithParameterNegative() {
+        try {
+            NaturalNumbersService naturalNumbersService = new NaturalNumbersServiceImpl();
+            List<Integer> result = naturalNumbersService.ListNPrimeNumbers(-15);
+        } catch (Exception ex) {
+            assertTrue(ex instanceof Exception);
+            System.out.println(ex.getMessage());
+        }
     }
 }
