@@ -1,5 +1,8 @@
 package com.alenasoft.urbanager.resources.naturalnumbers.service;
 
+import java.util.ArrayList;
+import java.util.List;
+
 /**
  * Created by rnota on 10/04/2018.
  */
@@ -21,6 +24,26 @@ public class NaturalNumbersServiceImpl implements NaturalNumbersService {
             }
 
             return convertBooleanToResult(flag);
+        }
+    }
+
+    @Override
+    public List<Integer> ListNPrimeNumbers(int quantity) throws Exception {
+        if (quantity < 1) {
+            throw new Exception("Error la cantidad tiene que ser mayor a cero");
+        } else {
+            int aux = 0;
+            List<Integer> resultado = new ArrayList<Integer>();
+            int i = 2;
+            while (aux < quantity) {
+                if (isAPrimeNumber(i) == Result.OK) {
+                    resultado.add(i);
+                    aux++;
+                }
+                i++;
+            }
+
+            return resultado;
         }
     }
 

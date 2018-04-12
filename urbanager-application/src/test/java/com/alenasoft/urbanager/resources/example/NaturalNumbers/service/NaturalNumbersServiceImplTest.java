@@ -36,7 +36,7 @@ public class NaturalNumbersServiceImplTest {
     }
 
     @Test
-    public void testListThe5thPrimeNumbers() {
+    public void testListThe5thPrimeNumbers() throws Exception {
         List<Integer> expected = Arrays.asList(2, 3, 5, 7, 11);
         NaturalNumbersService naturalNumbersService = new NaturalNumbersServiceImpl();
         List<Integer> result = naturalNumbersService.ListNPrimeNumbers(5);
@@ -44,7 +44,7 @@ public class NaturalNumbersServiceImplTest {
     }
 
     @Test
-    public void testListThe15thPrimeNumbers() {
+    public void testListThe15thPrimeNumbers() throws Exception {
         List<Integer> expected = Arrays.asList(2, 3, 5, 7, 11, 13, 17, 19, 23, 29, 31, 37, 41, 43, 47);
         NaturalNumbersService naturalNumbersService = new NaturalNumbersServiceImpl();
         List<Integer> result = naturalNumbersService.ListNPrimeNumbers(15);
